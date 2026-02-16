@@ -1,0 +1,6 @@
+{
+  "model": "gpt-5.3-codex",
+  "reasoning": "xhigh",
+  "sandbox": "read-only",
+  "background": true
+}
