@@ -1,61 +1,58 @@
 # Gemini
 
-Google Gemini CLI integration for Claude Code.
+Run Google Gemini CLI as a skill in Claude Code — code analysis and multi-model routing.
 
 ## Prerequisites
 
 ```bash
 npm install -g @google/gemini-cli
+gemini                               # first run triggers OAuth (or set GEMINI_API_KEY)
 ```
-
-Google authentication required:
-
-```bash
-gemini                         # First run triggers OAuth login
-```
-
-Or set the `GEMINI_API_KEY` environment variable.
 
 ## Installation
 
 ```bash
+claude /install-marketplace github:addsalt1t/evoca
 claude /install gemini
 ```
 
-## How It Works
-
-This plugin registers Gemini CLI as a skill inside Claude Code. Once installed, Claude Code can invoke it directly from your conversation — no need to switch terminals or manage separate sessions.
+## Examples
 
 ```
-User prompt (e.g. "run gemini")
-  → Skill activated
-    → Read defaults.json (model, approval_mode, background)
-      → Assemble CLI command (gemini -p "<prompt>" --approval-mode <mode> -m <model>)
-        → Execute in background via Bash tool
-          → Capture output to /tmp/gemini_output.md
-            → Summarize result to user
-```
+You: gemini analyze the authentication module
+→ Gemini analyzes the code and returns findings
 
-- Tasks run via `gemini -p` in headless (non-interactive) mode
-- Supports model routing: auto, pro, flash, flash-lite
-- Output is captured and summarized — use `gemini resume` to continue a session
-- Runs in background by default so Claude Code remains responsive
+You: I can't figure out why this memory leak happens. Ask gemini for advice.
+→ Gemini analyzes the issue from a different angle and suggests approaches
+```
 
 ## Usage
 
-The gemini skill activates automatically when you use these keywords in Claude Code:
+```
+run gemini             # Run a task
+gemini analyze         # Analyze code
+gemini config          # Change settings
+gemini resume          # Resume previous session
+```
 
-- `run gemini` / `use gemini` — Run a task with Gemini
-- `gemini analyze` — Analyze code with Gemini
-- `gemini config` — Change default settings (model, approval mode, etc.)
-- `gemini resume` — Resume previous session
+## Settings
 
-## Configuration
+Use `gemini config` to customize:
 
-Use `gemini config` to customize defaults:
+| Setting | Default | Options |
+|---------|---------|---------|
+| model | `auto` | auto / pro / flash / flash-lite |
+| approval_mode | `plan` | plan / auto_edit / yolo |
+| background | `true` | true / false |
 
-| Setting | Default | Description |
-|---------|---------|-------------|
-| model | `auto` | Model to use (auto/pro/flash/flash-lite) |
-| approval_mode | `plan` | Approval mode (plan/auto_edit/yolo) |
-| background | `true` | Run in background |
+## How It Works
+
+This plugin registers a **skill** in Claude Code. When you mention a trigger keyword, the skill:
+
+1. Reads your configured defaults
+2. Assembles the CLI command (`gemini -p`)
+3. Runs it in the background
+4. Captures the output
+5. Returns a summary to your conversation
+
+Use `gemini resume` to continue where a previous session left off.
