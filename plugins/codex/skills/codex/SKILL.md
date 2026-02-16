@@ -14,13 +14,15 @@ description: Use when the user asks to run Codex CLI or references OpenAI Codex 
 
 2. **Assemble command**. Always capture output: `> /tmp/codex_output.md 2>&1`
    - **`codex exec`**: Use `-m <MODEL>` and `-c model_reasoning_effort="<LEVEL>"`.
-   - **`codex review`** (direct): Use `-c model="<MODEL>"`. Cannot combine `--commit <SHA>` with `[PROMPT]`.
+   - **Sandbox**: analysis/review → `-s read-only` (default). editing/writing → `-s workspace-write`. `danger-full-access` requires user confirmation.
+   - **`codex review`** (direct): Use `-c model="<MODEL>"` instead. Cannot combine `--commit <SHA>` with `[PROMPT]`.
    - **`codex exec review`**: Accepts `-m <MODEL>` directly (alternative to `codex review`).
    - **CRITICAL**: `-c` requires full `key=value` syntax. Use `-c model_reasoning_effort="xhigh"`. Never `-c xhigh`.
    - **Note**: `minimal` reasoning level is incompatible with web_search tool.
+   - **Note**: `-i <FILE>` must come after `[PROMPT]`, not before. Otherwise the prompt is consumed by `-i`.
 
 3. **Execute**.
-   - **Background** (`"background": true`, default): Run with `run_in_background: true` on Bash tool → `TaskOutput` with `block: true` → Read `/tmp/codex_output.md`. Mid-run: `TaskOutput` `block: false` for progress, `TaskStop` to abort.
+   - **Background** (`"background": true`, default): Run with `run_in_background: true` on Bash tool → immediately `TaskOutput` with `block: false` (startup check: if already completed with non-zero exit, stop and report error) → then `TaskOutput` with `block: true` → Read `/tmp/codex_output.md`. Mid-run: `TaskOutput` `block: false` for progress, `TaskStop` to abort.
    - **Foreground** (`"background": false`): Run directly with `timeout: 300000`.
 
 4. **Summarize** outcome. Inform user they can continue with "codex resume".
@@ -35,7 +37,7 @@ When user says "codex config", "change codex settings", or "change codex default
 ## Error Handling
 
 - Non-zero exit: stop and report, ask before retrying.
-- Before `--full-auto` or `-s danger-full-access`: confirm with user via `AskUserQuestion`.
+- Before `-s danger-full-access`: confirm with user via `AskUserQuestion`.
 
 ## References
 

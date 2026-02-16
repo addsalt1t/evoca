@@ -15,13 +15,14 @@ description: Use when the user asks to run Gemini CLI or references Google Gemin
    - User overrides in message (e.g., "use pro", "plan mode") → apply over defaults.
 
 2. **Assemble command**. Always capture output: `> /tmp/gemini_output.md 2>&1`
-   - **Headless**: `gemini -p "<prompt>"` with `--approval-mode <MODE>`.
-   - **Model**: `-m <MODEL>` (auto, pro, flash, flash-lite).
+   - **Headless flags**:
+     `-p "<prompt>"` | `-m <MODEL>` | `--approval-mode <MODE>` | `-r <SESSION>` | `-s` (sandbox) | `-o <FORMAT>` | `-e <EXTENSIONS>` | `--allowed-tools <LIST>` | `--include-directories <DIRS>`
+   - **Approval**: analysis/review → `plan`. editing → `auto_edit`. full autonomy → `yolo` (requires user confirmation).
    - **CRITICAL**: `--approval-mode default` causes approval prompts in headless and will fail. Must use `plan`, `auto_edit`, or `yolo`.
-   - **Note**: Confirm with user via `AskUserQuestion` before using `--approval-mode yolo`.
+   - Unknown flag errors → read [references/commands.md](references/commands.md).
 
 3. **Execute**.
-   - **Background** (`"background": true`, default): Run with `run_in_background: true` on Bash tool → `TaskOutput` with `block: true` → Read `/tmp/gemini_output.md`. Mid-run: `TaskOutput` `block: false` for progress, `TaskStop` to abort.
+   - **Background** (`"background": true`, default): Run with `run_in_background: true` on Bash tool → immediately `TaskOutput` with `block: false` (startup check: if already completed with non-zero exit, stop and report error) → then `TaskOutput` with `block: true` → Read `/tmp/gemini_output.md`. Mid-run: `TaskOutput` `block: false` for progress, `TaskStop` to abort.
    - **Foreground** (`"background": false`): Run directly with `timeout: 300000`.
 
 4. **Summarize** outcome. Inform user they can resume with "gemini resume".
