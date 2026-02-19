@@ -1,15 +1,14 @@
 # Evoca
 
-Use Codex and Gemini as skills in Claude Code.
+A Claude Code plugin marketplace.
 
 ## What's Inside
 
 | Plugin | What it does |
 |--------|-------------|
-| **codex** | Run OpenAI Codex CLI from Claude Code — code review, analysis, cloud tasks |
-| **gemini** | Run Google Gemini CLI from Claude Code — code analysis, multi-model routing |
-
-Both run in the background so Claude Code stays responsive. Output is captured and summarized back into your conversation.
+| **codex** | Run OpenAI Codex CLI — code review, analysis, cloud tasks |
+| **gemini** | Run Google Gemini CLI — code analysis, multi-model routing |
+| **claude-md-management** | Audit and improve CLAUDE.md and `.claude/rules/` files — quality scoring, session learnings capture |
 
 ## Installation
 

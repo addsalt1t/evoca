@@ -10,7 +10,7 @@ description: Use when the user asks to run Codex CLI or references OpenAI Codex 
 1. **Read defaults**: Read `defaults.json` (in skill base directory) using Read tool.
    - Defaults exist → use directly. Print: `[Codex] model: <MODEL> | reasoning: <LEVEL> | sandbox: <MODE> | background: <BOOL>`
    - Missing/invalid → ask user via `AskUserQuestion` for model, reasoning, sandbox, background.
-   - User overrides in message (e.g., "use gpt-5.2-codex") → apply over defaults.
+   - User overrides in message (e.g., "use gpt-5.3-codex") → apply over defaults.
 
 2. **Assemble command**. Always capture output: `> /tmp/codex_output.md 2>&1`
    - **`codex exec`**: Use `-m <MODEL>` and `-c model_reasoning_effort="<LEVEL>"`.

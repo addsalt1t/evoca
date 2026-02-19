@@ -20,6 +20,13 @@
       "source": "./plugins/gemini",
       "category": "development",
       "homepage": "https://github.com/addsalt1t/evoca"
+    },
+    {
+      "name": "claude-md-management",
+      "description": "Audit, improve, and revise CLAUDE.md and .claude/rules/ files with quality assessment and targeted updates",
+      "source": "./plugins/claude-md-management",
+      "category": "development",
+      "homepage": "https://github.com/addsalt1t/evoca"
     }
   ]
 }
