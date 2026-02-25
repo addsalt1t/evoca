@@ -1,0 +1,32 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "evoca",
+  "description": "Use Codex and Gemini as Claude Code skills — get second opinions and cross-validate without leaving your session",
+  "owner": {
+    "name": "addsalt1t",
+    "email": "addsalt1t@users.noreply.github.com"
+  },
+  "plugins": [
+    {
+      "name": "codex",
+      "description": "OpenAI Codex CLI integration for Claude Code",
+      "source": "./plugins/codex",
+      "category": "development",
+      "homepage": "https://github.com/addsalt1t/evoca"
+    },
+    {
+      "name": "gemini",
+      "description": "Google Gemini CLI integration for Claude Code",
+      "source": "./plugins/gemini",
+      "category": "development",
+      "homepage": "https://github.com/addsalt1t/evoca"
+    },
+    {
+      "name": "memory-lint",
+      "description": "Research-backed tools to audit and improve CLAUDE.md files — eliminate redundancy, capture session learnings, and keep project memory lean",
+      "source": "./plugins/memory-lint",
+      "category": "development",
+      "homepage": "https://github.com/addsalt1t/evoca"
+    }
+  ]
+}

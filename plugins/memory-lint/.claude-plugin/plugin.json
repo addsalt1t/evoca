@@ -1,0 +1,9 @@
+{
+  "name": "memory-lint",
+  "description": "Audit and improve CLAUDE.md files — eliminate redundancy, capture session learnings, and keep project memory lean.",
+  "version": "2.0.0",
+  "author": {
+    "name": "Anthropic",
+    "email": "support@anthropic.com"
+  }
+}
