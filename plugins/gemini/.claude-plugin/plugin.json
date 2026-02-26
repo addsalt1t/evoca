@@ -1,6 +1,6 @@
 {
   "name": "gemini",
-  "description": "Exec Gemini CLI from Claude Code",
+  "description": "Run Gemini CLI from Claude Code",
   "version": "1.0.0",
   "author": {
     "name": "addsalt1t",

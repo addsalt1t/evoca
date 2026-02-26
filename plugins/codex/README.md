@@ -1,6 +1,6 @@
 # Codex
 
-Exec Codex CLI from Claude Code.
+Run Codex CLI from Claude Code.
 
 ## Prerequisites
 

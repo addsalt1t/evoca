@@ -1,6 +1,6 @@
 # Gemini
 
-Exec Gemini CLI from Claude Code.
+Run Gemini CLI from Claude Code.
 
 ## Prerequisites
 
