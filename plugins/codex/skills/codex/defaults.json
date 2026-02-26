@@ -1,5 +1,6 @@
 {
   "model": "gpt-5.3-codex",
+  "sub_model": "gpt-5.3-codex-spark",
   "reasoning": "xhigh",
   "sandbox": "read-only",
   "background": true

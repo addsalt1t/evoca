@@ -1,7 +1,7 @@
 {
   "name": "codex",
   "description": "OpenAI Codex CLI integration for Claude Code",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": {
     "name": "addsalt1t",
     "email": "addsalt1t@users.noreply.github.com"

@@ -24,6 +24,9 @@ You: codex review
 
 You: codex analyze this race condition — I want a second opinion.
 → Codex examines the code independently and returns its diagnosis
+
+You: /codex-review --base main
+→ Codex reviews current branch against main
 ```
 
 ## Usage
@@ -34,6 +37,7 @@ codex analyze          # Analyze code
 codex cloud            # Cloud task
 codex config           # Change settings
 codex resume           # Resume previous session
+/codex-review          # Native code review command
 ```
 
 ## Settings
@@ -43,6 +47,7 @@ Use `codex config` to customize:
 | Setting | Default | Options |
 |---------|---------|---------|
 | model | `gpt-5.3-codex` | Any Codex-supported model |
+| sub_model | `gpt-5.3-codex-spark` | Fast model for quick tasks |
 | reasoning | `xhigh` | low / medium / high / xhigh |
 | sandbox | `read-only` | read-only / full-auto |
 | background | `true` | true / false |
