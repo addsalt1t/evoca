@@ -6,6 +6,6 @@ A Claude Code plugin marketplace.
 
 | Plugin | What it does |
 |--------|-------------|
-| **codex** | Run OpenAI Codex CLI — code review, analysis, cloud tasks |
-| **gemini** | Run Google Gemini CLI — code analysis, multi-model routing |
+| **codex** | Exec Codex CLI from Claude Code |
+| **gemini** | Exec Gemini CLI from Claude Code |
 | **memory-lint** | Research-backed CLAUDE.md auditing — eliminate redundancy, capture session learnings, keep project memory lean |

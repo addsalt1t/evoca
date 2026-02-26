@@ -1,6 +1,6 @@
 {
   "name": "codex",
-  "description": "OpenAI Codex CLI integration for Claude Code",
+  "description": "Exec Codex CLI from Claude Code",
   "version": "1.1.0",
   "author": {
     "name": "addsalt1t",

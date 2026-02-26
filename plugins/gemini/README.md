@@ -1,6 +1,6 @@
 # Gemini
 
-Run Google Gemini CLI as a skill in Claude Code — code analysis and multi-model routing.
+Exec Gemini CLI from Claude Code.
 
 ## Prerequisites
 

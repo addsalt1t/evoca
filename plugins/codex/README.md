@@ -1,6 +1,6 @@
 # Codex
 
-Run OpenAI Codex CLI as a skill in Claude Code — code review, analysis, and cloud tasks.
+Exec Codex CLI from Claude Code.
 
 ## Prerequisites
 
